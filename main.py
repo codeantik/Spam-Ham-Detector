@@ -1,4 +1,4 @@
-# importing the dependencies
+## importing the dependencies
 
 import numpy as np
 import pandas as pd
@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
-# data collection & preprocessing
+## data collection & preprocessing
 
 # laoding the data from csv file to pandas dataframe
 raw_mail_data = pd.read_csv('mail_data.csv')
@@ -42,7 +42,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 # print(x_train.shape)
 # print(x_test.shape)
 
-# feature extraction
+## feature extraction
 
 # transform the text data to feature vectors that can be used as input for the logistic regression model
 feature_extraction = TfidfVectorizer(min_df = 1, stop_words='english', lowercase='True')
@@ -58,7 +58,7 @@ y_test = y_test.astype(int)
 
 # training the model
 
-# logistic regression model
+## logistic regression model
 
 model = LogisticRegression()
 
@@ -88,7 +88,7 @@ input_mail = ["I've been searching for the right words to thank you for this bre
 input_mail_features = feature_extraction.transform(input_mail)
 
 
-# making predictions
+## making predictions
 prediction = model.predict(input_mail_features)  
 print(prediction)           
 
