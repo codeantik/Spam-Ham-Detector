@@ -27,7 +27,7 @@ mail_data = raw_mail_data.where(pd.notnull(raw_mail_data), '')
 mail_data.loc[mail_data['Category'] == 'spam', 'Category',] = 0
 mail_data.loc[mail_data['Category'] == 'ham', 'Category',] = 1
 
-# separating the data as texts ans labels
+## separating the data as texts ans labels
 
 x = mail_data['Message']
 y = mail_data['Category']
@@ -50,7 +50,7 @@ feature_extraction = TfidfVectorizer(min_df = 1, stop_words='english', lowercase
 x_train_features = feature_extraction.fit_transform(x_train)
 x_test_features = feature_extraction.transform(x_test)
 
-# convert y_train and y-test as integers
+# convert y_train and y_test as integers
 y_train = y_train.astype(int)
 y_test = y_test.astype(int)
 
@@ -66,7 +66,7 @@ model = LogisticRegression()
 model.fit(x_train_features, y_train)
 
 
-# evaluating the trained model
+## evaluating the trained model
 
 # prediction on training data
 prediction_on_training_data = model.predict(x_train_features)
